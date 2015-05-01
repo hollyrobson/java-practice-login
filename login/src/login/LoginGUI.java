@@ -4,8 +4,12 @@ package login;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class LoginGUI {
 
@@ -52,6 +56,21 @@ public class LoginGUI {
 		closeButton.setBounds(140, 80, 120, 25);
 		panel.add( closeButton );
 		
+		ActionListener loginButtonListener = new ActionListener() {
+			@override
+			public void actionPerformed( ActionEvent e ) {
+				JOptionPane.showMessageDialog( ( Component )e.getSource(), "Login Button has been pressed!" );
+			}
+		};
+		loginButton.addActionListener( loginButtonListener );
+		
+		ActionListener closeButtonListener = new ActionListener() {
+			@override
+			public void actionPerformed( ActionEvent e ) {
+				JOptionPane.showMessageDialog( ( Component )e.getSource(), "Close Button has been pressed!" );
+			}
+		};
+		closeButton.addActionListener( closeButtonListener );
 	}
 
 }
